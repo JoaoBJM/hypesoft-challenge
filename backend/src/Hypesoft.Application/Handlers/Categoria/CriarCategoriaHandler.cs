@@ -1,10 +1,10 @@
 using Hypesoft.Application.Commands.Categoria;
 using Hypesoft.Application.DTOs;
-using Hypesoft.Domain.Entities;
+using CategoriaEntity = Hypesoft.Domain.Entities.Categoria;
 using Hypesoft.Domain.Repositories;
 using MediatR;
 
-namespace Hypesoft.Application.Handlers.Categoria;
+namespace Hypesoft.Application.Handlers.CategoriaHandler;
 
 public class CriarCategoriaHandler : IRequestHandler<CriarCategoriaCommand, CategoriaDto>
 {
@@ -17,7 +17,7 @@ public class CriarCategoriaHandler : IRequestHandler<CriarCategoriaCommand, Cate
 
     public async Task<CategoriaDto> Handle(CriarCategoriaCommand request, CancellationToken cancellationToken)
     {
-        var categoria = new Categoria
+    var categoria = new CategoriaEntity
         {
             Id = Guid.NewGuid(),
             Nome = request.Nome

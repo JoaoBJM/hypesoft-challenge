@@ -6,30 +6,31 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 
-namespace Hypesoft.API.Controllers;
-
+namespace Hypesoft.API.Controllers
+{
     [ApiController]
     [Route("api/[controller]")]
     [Authorize]
     public class ProdutosController : ControllerBase
     {
-    private readonly IMediator _mediator;
+        private readonly IMediator _mediator;
 
-    public ProdutosController(IMediator mediator)
-    {
-        _mediator = mediator;
-    }
+        public ProdutosController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
 
-    [HttpGet]
-    public async Task<IEnumerable<ProdutoDto>> Listar()
-    {
-        return await _mediator.Send(new ListarProdutosQuery());
-    }
+        [HttpGet]
+        public async Task<IEnumerable<ProdutoDto>> Listar()
+        {
+            return await _mediator.Send(new ListarProdutosQuery());
+        }
 
-    [HttpPost]
-    public async Task<ActionResult<ProdutoDto>> Criar([FromBody] CriarProdutoCommand command)
-    {
-        var produto = await _mediator.Send(command);
-        return CreatedAtAction(nameof(Listar), new { id = produto.Id }, produto);
+        [HttpPost]
+        public async Task<ActionResult<ProdutoDto>> Criar([FromBody] CriarProdutoCommand command)
+        {
+            var produto = await _mediator.Send(command);
+            return CreatedAtAction(nameof(Listar), new { id = produto.Id }, produto);
+        }
     }
 }

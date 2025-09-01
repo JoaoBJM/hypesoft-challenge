@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="13.0.0" />
+  <ProjectReference Include="..\Hypesoft.Domain\Hypesoft.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
