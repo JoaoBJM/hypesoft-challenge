@@ -1,0 +1,28 @@
+# Node
+node_modules/
+.next/
+dist/
+.env
+.env.*
+
+# VSCode
+.vscode/
+
+# Dotnet
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Docker
+*.pid
+
+# Logs
+*.log
+logs/
+
+# Others
+.DS_Store
+Thumbs.db
