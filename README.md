@@ -1,69 +1,90 @@
 # Hypesoft Challenge
 
-## Visão Geral
+> Sistema completo de gestão de produtos, desenvolvido como desafio técnico para a Hypesoft, utilizando arquitetura moderna, boas práticas e tecnologias de ponta.
 
-Este projeto é um sistema completo de gestão de produtos, desenvolvido como desafio técnico para a Hypesoft. Ele demonstra arquitetura moderna, boas práticas de desenvolvimento e uso de tecnologias de ponta.
+---
 
-## Funcionalidades
-- **Gestão de Produtos:** CRUD de produtos, busca, filtro por categoria, controle de estoque, alerta de estoque baixo.
-- **Sistema de Categorias:** CRUD de categorias, associação produto-categoria.
-- **Dashboard:** Total de produtos, valor do estoque, produtos com estoque baixo, gráfico por categoria.
-- **Autenticação:** Integração com Keycloak (OAuth2/OpenID Connect), proteção de rotas, roles.
+## 🚀 Visão Geral
+Este projeto foi desenvolvido do zero, com foco em Clean Architecture, escalabilidade, segurança e experiência do usuário. O objetivo é demonstrar domínio em backend, frontend e infraestrutura moderna.
 
-## Tecnologias Utilizadas
-### Backend
-- .NET 9, Clean Architecture, DDD, CQRS, MediatR
-- Entity Framework Core (MongoDB provider)
-- FluentValidation, AutoMapper, Serilog
-- xUnit, FluentAssertions
+## 🛠️ Tecnologias & Decisões
 
-### Frontend
-- Next.js 14 (App Router, SSR)
-- React 18, TypeScript
-- TailwindCSS, Shadcn/ui
-- React Query, React Hook Form, Zod
-- Recharts/Chart.js
-- React Testing Library, Vitest
+### Backend (.NET 9)
+- **Clean Architecture + DDD:** Separação clara de responsabilidades, facilitando manutenção e testes.
+- **CQRS + MediatR:** Comandos e queries desacoplados, facilitando escalabilidade e rastreabilidade.
+- **Entity Framework Core (MongoDB):** Persistência flexível e performática.
+- **FluentValidation & AutoMapper:** Validação robusta e mapeamento eficiente.
+- **Serilog:** Logging estruturado para observabilidade.
+- **xUnit + FluentAssertions:** Testes unitários e integração com alta cobertura.
+
+### Frontend (Next.js 14 + React 18)
+- **Next.js App Router:** SSR, code splitting e performance.
+- **TailwindCSS + Shadcn/ui:** UI moderna, responsiva e consistente.
+- **React Query:** Gerenciamento eficiente de dados e cache.
+- **React Hook Form + Zod:** Formulários com validação em tempo real.
+- **Recharts/Chart.js:** Dashboards e visualização de dados.
+- **Vitest + React Testing Library:** Testes rápidos e confiáveis.
 
 ### Infraestrutura
-- MongoDB, Keycloak, Docker Compose, Nginx
+- **Docker Compose:** Orquestração de todos os serviços (API, frontend, MongoDB, Keycloak, Nginx).
+- **Keycloak:** Autenticação e autorização robusta (OAuth2/OpenID Connect).
+- **Nginx:** Reverse proxy para segurança e performance.
 
-## Como Executar
-
-```sh
-git clone https://github.com/seu-usuario/hypesoft-challenge.git
-cd hypesoft-challenge
-cp .env.example .env
-docker-compose up -d
-docker-compose ps
-```
-
-- Frontend: http://localhost:3000
-- API: http://localhost:5000
-- Swagger: http://localhost:5000/swagger
-- MongoDB Express: http://localhost:8081
-- Keycloak: http://localhost:8080
-
-## Estrutura do Projeto
+## 📐 Arquitetura
 
 ```
 backend/
-	src/
-		Hypesoft.Domain/
-		Hypesoft.Application/
-		Hypesoft.Infrastructure/
-		Hypesoft.API/
+  src/
+	 Hypesoft.Domain/         # Entidades, VOs, eventos, repositórios
+	 Hypesoft.Application/    # CQRS, DTOs, validações, handlers
+	 Hypesoft.Infrastructure/ # Data, repositórios, serviços externos
+	 Hypesoft.API/            # Controllers, middlewares, filtros
 frontend/
-	src/
-		components/
-		pages/
-		hooks/
-		services/
-		stores/
-		types/
-		utils/
-		lib/
+  src/
+	 components/  pages/  hooks/  services/  stores/  types/  utils/  lib/
 ```
 
-## Licença
+## 💡 Como foi feito
+- **Planejamento:** Análise dos requisitos, definição da arquitetura e escolha das tecnologias.
+- **Setup:** Estruturação dos projetos backend e frontend, configuração do Docker Compose e Nginx.
+- **Backend:** Implementação das camadas, entidades, repositórios, comandos/queries, validações e testes.
+- **Frontend:** Criação da base Next.js, configuração de UI, autenticação, páginas e integração com API.
+- **Infra:** Configuração de Keycloak, MongoDB, variáveis de ambiente e scripts de inicialização.
+- **Testes:** Cobertura mínima de 85% no backend, testes E2E e integração.
+- **Documentação:** README detalhado, exemplos de uso, instruções de setup e arquitetura.
+
+## 🏁 Como rodar localmente
+
+1. Clone o repositório:
+	```sh
+	git clone https://github.com/JoaoBJM/hypesoft-challenge.git
+	cd hypesoft-challenge
+	```
+2. Copie as variáveis de ambiente:
+	```sh
+	cp .env.example .env
+	```
+3. Suba os containers:
+	```sh
+	docker-compose up -d
+	```
+4. Acesse os serviços:
+	- Frontend: http://localhost:3000
+	- API: http://localhost:5000
+	- Swagger: http://localhost:5000/swagger
+	- MongoDB Express: http://localhost:8081
+	- Keycloak: http://localhost:8080
+
+## 📋 Funcionalidades
+- CRUD de produtos e categorias
+- Busca, filtro e dashboard
+- Controle e alerta de estoque
+- Autenticação Keycloak (roles)
+- Testes automatizados e documentação
+
+## 📄 Licença
 MIT
+
+---
+
+Desenvolvido por [João BJM](https://github.com/JoaoBJM) para o desafio Hypesoft 🚀
