@@ -1,15 +1,18 @@
+
 using Hypesoft.Application.Commands.Categoria;
 using Hypesoft.Application.DTOs;
 using Hypesoft.Application.Queries.Categoria;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Hypesoft.API.Controllers;
 
-[ApiController]
-[Route("api/[controller]")]
-public class CategoriasController : ControllerBase
-{
+    [ApiController]
+    [Route("api/[controller]")]
+    [Authorize]
+    public class CategoriasController : ControllerBase
+    {
     private readonly IMediator _mediator;
 
     public CategoriasController(IMediator mediator)

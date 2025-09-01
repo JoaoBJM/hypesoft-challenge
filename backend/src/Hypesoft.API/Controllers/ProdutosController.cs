@@ -1,15 +1,18 @@
+
 using Hypesoft.Application.Commands.Produto;
 using Hypesoft.Application.DTOs;
 using Hypesoft.Application.Queries.Produto;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Hypesoft.API.Controllers;
 
-[ApiController]
-[Route("api/[controller]")]
-public class ProdutosController : ControllerBase
-{
+    [ApiController]
+    [Route("api/[controller]")]
+    [Authorize]
+    public class ProdutosController : ControllerBase
+    {
     private readonly IMediator _mediator;
 
     public ProdutosController(IMediator mediator)
